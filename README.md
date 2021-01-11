@@ -2,6 +2,6 @@
 	- [src文件](src)
 	- [数据结构](src/DS)
 	- [设计模式](src/Design_Pattern)
-	- [LeetCodet题目 part1](src/Leetcode_2020)
-	- [LeetCode 题目 part2](src/Leetcode_2021)
+	- [LeetCode 题目 part1](src/LeetCode_2020)
+	- [LeetCode 题目 part2](src/LeetCode_2021)
 	- [Effective Java](src/Effective_Java)
