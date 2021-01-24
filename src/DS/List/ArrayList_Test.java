@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class ArrayList_Test {
     public static void main(String[] args){
-        ArrayList<Integer> arrayList = new ArrayList<>();
+        ArrayList<Integer> arrayList = new ArrayList<>();               
 
         arrayList.add(1);
         arrayList.add(2);
