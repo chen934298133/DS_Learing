@@ -1,8 +1,8 @@
-package algorithm.Linear;
+package algorithm.Linear.List_OneWay;
 
-public class Node<T>{
+public class Node_OneWay<T>{
     private T item;
-    public Node next;
+    public Node_OneWay next;
 
     public T getItem() {
         return item;
@@ -12,7 +12,7 @@ public class Node<T>{
         this.item = item;
     }
 
-    public Node(T item, Node next){
+    public Node_OneWay(T item, Node_OneWay next){
         this.next = next;
         this.item = item;
     }
