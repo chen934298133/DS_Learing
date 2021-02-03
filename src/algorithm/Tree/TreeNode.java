@@ -7,15 +7,23 @@ public class TreeNode<Key, Value> {
     public TreeNode left;
     public TreeNode right;
 
-    private TreeNode(Key key, Value value, TreeNode left, TreeNode right){
+//    private TreeNode(Key key, Value value, TreeNode left, TreeNode right){
+//        this.key = key;
+//        this.value = value;
+//        this.left = left;
+//        this.right = right;
+//    }
+//
+//    public static TreeNode treeNodeA (Key key, Value value, TreeNode left, TreeNode right){
+//
+//    }
+
+
+    public  TreeNode (Key key, Value value, TreeNode left, TreeNode right){
         this.key = key;
         this.value = value;
         this.left = left;
         this.right = right;
-    }
-
-    public TreeNode TreeNode1(Key key, Value value, TreeNode left, TreeNode right){
-        return new TreeNode(key, value, left,right);
     }
 
     public Key getKey() {
@@ -24,5 +32,13 @@ public class TreeNode<Key, Value> {
 
     public void setKey(Key key) {
         this.key = key;
+    }
+
+    public Value getValue() {
+        return value;
+    }
+
+    public void setValue(Value value) {
+        this.value = value;
     }
 }
