@@ -1,4 +1,6 @@
-package algorithm.Tree;
+package algorithm.Tree.Test;
+
+import algorithm.Tree.BinaryTree;
 
 public class BinaryTreeTest {
     public static void main(String[] args){

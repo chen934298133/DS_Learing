@@ -1,5 +1,8 @@
 package algorithm.Tree;
 
+import algorithm.Linear_1.Queue_Code;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.util.QEncoderStream;
+
 public class BinaryTree<Key extends Comparable<Key>, Value> {
 
     private TreeNode root;
@@ -9,7 +12,7 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
         return N;
     }
 
-    //向树中添加元素key-value
+    // 向树中添加元素key-value
     public void put(Key key, Value value){
         root = put(root, key, value);
     }
@@ -39,12 +42,12 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
         return x;
     }
 
-    //查询树中指定key对应的value
+    // 查询树中指定key对应的value
     public Value get(Key key){
         return get(root, key);
     }
 
-    //从指定的树x中，查找key对应的值
+    // 从指定的树x中，查找key对应的值
     public Value get(TreeNode x, Key key){
         // 与 put 思想相同
         if (x == null){
@@ -61,12 +64,12 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
         }
     }
 
-    //删除树中key对应的value
+    // 删除树中key对应的value
     public TreeNode delete(Key key){
         return delete(root, key);
     }
 
-    //删除指定树x中的key对应的value，并返回删除后的新树
+    // 删除指定树x中的key对应的value，并返回删除后的新树
     // 删除方法有问题，等后面有空仔细改一下
     public TreeNode delete(TreeNode x, Key key){
         if (x == null){
@@ -126,12 +129,12 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
         return x;
     }
 
-    //查找整个树中最小的键
+    // 查找整个树中最小的键
     public Key min(){
         return (Key) min(root).getKey();
     }
 
-    //在指定树x中找出最小键所在的结点
+    // 在指定树x中找出最小键所在的结点
     private TreeNode min(TreeNode x){
 
         //需要判断x还有没有左子结点，如果有，则继续向左找，如果没有，则x就是最小键所在的结点
@@ -142,12 +145,12 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
         }
     }
 
-    //在整个树中找到最大的键
+    // 在整个树中找到最大的键
     public Key max(){
         return (Key) max(root).getKey();
     }
 
-    //在指定的树x中，找到最大的键所在的结点
+    // 在指定的树x中，找到最大的键所在的结点
     public TreeNode max(TreeNode x){
         //判断x还有没有右子结点，如果有，则继续向右查找，如果没有，则x就是最大键所在的结点
         if (x.right!=null){
@@ -155,5 +158,133 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
         }else{
             return x;
         }
+    }
+
+    // 前序遍历获取整个树中所有的键
+    public Queue_Code<Key> preErgodic(){
+        Queue_Code<Key> keys = Queue_Code.queue();
+        preErgodic(root, keys);
+        return keys;
+    }
+
+    // 递归获取指定树的所有键，并放在keys队列中
+    private void preErgodic(TreeNode x, Queue_Code<Key> keys){
+        if (x == null){
+            return;
+        }
+
+        keys.add((Key) x.getKey());
+
+        if (x.left != null){
+            preErgodic(x.left, keys);
+        }
+
+        if (x.right != null){
+            preErgodic(x.right, keys);
+        }
+    }
+
+    // 中序遍历获取整个树中所有的键
+    public Queue_Code<Key> midErgodic(){
+        Queue_Code<Key> keys = Queue_Code.queue();
+        midErgodic(root, keys);
+        return keys;
+    }
+
+    // 递归获取指定树的所有键，并放在keys队列中
+    private void midErgodic(TreeNode x, Queue_Code<Key> keys){
+        if (x == null){
+            return;
+        }
+
+        if (x.left != null){
+            preErgodic(x.left, keys);
+        }
+
+        keys.add((Key) x.getKey());
+
+        if (x.right != null){
+            preErgodic(x.right, keys);
+        }
+    }
+
+    // 后序遍历获取整个树中所有的键
+    public Queue_Code<Key> afterErgodic(){
+        Queue_Code<Key> keys = Queue_Code.queue();
+        afterErgodic(root, keys);
+        return keys;
+    }
+
+    // 递归获取指定树的所有键，并放在keys队列中
+    private void afterErgodic(TreeNode x, Queue_Code<Key> keys){
+        if (x == null){
+            return;
+        }
+
+        if (x.left != null){
+            preErgodic(x.left, keys);
+        }
+
+        if (x.right != null){
+            preErgodic(x.right, keys);
+        }
+
+        keys.add((Key) x.getKey());
+    }
+
+    //使用层序遍历，获取整个树中所有的键
+    public Queue_Code<Key> layerErgodic(){
+        Queue_Code<Key> keys = Queue_Code.queue();
+        Queue_Code<TreeNode> nodes = Queue_Code.queue();
+
+        nodes.add(root);
+
+        while ( !nodes.isEmpty()){
+            TreeNode n = nodes.poll();
+            keys.add((Key) n.getKey());
+            if (n.left != null){
+                nodes.add(n.left);
+            }
+            if (n.right != null){
+                nodes.add(n.right);
+            }
+        }
+        return keys;
+    }
+
+    //获取整个树的最大深度
+    public int maxDepth(){
+        return maxDepth(root);
+    }
+
+
+    //获取指定树x的最大深度
+    private int maxDepth(TreeNode x){
+        if (x == null){
+            return 0;
+        }
+
+        //x的最大深度
+        int max=0;
+
+        //左子树的最大深度
+        int maxL=0;
+
+        //右子树的最大深度
+        int maxR=0;
+
+        //计算x结点左子树的最大深度
+        if (x.left != null){
+            maxL = maxDepth(x.left);
+        }
+        //计算x结点右子树的最大深度
+        if (x.right != null){
+            maxR = maxDepth(x.right);
+        }
+
+        //比较左子树最大深度和右子树最大深度，取较大值+1即可
+        max = (maxL > maxR ? maxL+1 : maxR+1);
+
+        return max;
     }
 }
