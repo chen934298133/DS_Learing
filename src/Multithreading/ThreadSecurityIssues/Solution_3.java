@@ -10,10 +10,15 @@ package Multithreading.ThreadSecurityIssues;
  *
  */
 public class Solution_3  implements Runnable {
-    private static int ticket = 100;
+    private int ticket = 100;
     @Override
     public void run() {
         while (true) {
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             show();
             if (ticket == 0){
                 break;
@@ -22,17 +27,17 @@ public class Solution_3  implements Runnable {
 
     }
 
-    private static synchronized void show(){//同步监视器：this
+    private synchronized void show(){//同步监视器：this
         //synchronized (this){
-        if (ticket > 0) {
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//        if (ticket > 0) {
+//            try {
+//                Thread.sleep(10);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             System.out.println(Thread.currentThread().getName() + ":卖票，票号为：" + ticket);
             ticket--;
-        }
+//        }
         //}
     }
 }

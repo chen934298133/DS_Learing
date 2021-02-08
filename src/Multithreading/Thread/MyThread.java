@@ -29,6 +29,7 @@ class MyThread extends Thread {
         }
     }
 }
+
 class ThreadTest {
     public static void main(String[] args) {
         //3. 创建Thread类的子类的对象

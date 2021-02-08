@@ -1,7 +1,5 @@
 package Multithreading.ThreadSecurityIssues;
 
-import com.sun.imageio.plugins.wbmp.WBMPImageReader;
-
 /**
  * 例子：创建三个窗口卖票，总票数为100张.使用实现Runnable接口的方式
  *
@@ -47,8 +45,8 @@ public class Solution_1 implements Runnable{
         }
     }
 
-    private void show(){//同步监视器：this
-        synchronized (this){ //此时的this:唯一的Window1的对象（与继承Thread不同，Thread中的this代表实例化的每一个对象）
+    private void show(){//同步监视器：this 即 Solution_1
+        synchronized (this){ //此时的this: 唯一的Window1的对象（与继承Thread不同，Thread中的this代表实例化的每一个对象）
             // 方式二：synchronized (obj) {
             if (ticket > 0) {
                 try {
@@ -60,5 +58,13 @@ public class Solution_1 implements Runnable{
                 ticket--;
             }
         }
+    }
+
+    public int getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(int ticket) {
+        this.ticket = ticket;
     }
 }
