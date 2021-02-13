@@ -21,7 +21,6 @@ public class KthLargestElementInAStream_703 {
         System.out.println(list.clone());
         Iterator iterator = list.iterator();
         for (int i = 0; i < temp; i++) {
-             = iterator.next();
         }
         return list.size();
     }
