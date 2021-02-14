@@ -1,4 +1,4 @@
-package IO;
+package IO.ByteStream;
 
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
