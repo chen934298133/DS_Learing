@@ -1,6 +1,6 @@
 package Multithreading.Test;
 
-import Multithreading.ThreadSecurityIssues.Solution_3;
+import Multithreading.ThreadSecurityIssues_4.Solution_3;
 
 public class Solution_3_Test {
     public static void main(String[] args) {

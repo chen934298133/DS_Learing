@@ -1,6 +1,6 @@
 package Multithreading.Test;
 
-import Multithreading.Thread.SellTicketsWindows_Thread.SellWindow;
+import Multithreading.Thread_1.SellTicketsWindows_Thread.SellWindow;
 
 public class SellWindowTest {
     public static void main(String[] args){

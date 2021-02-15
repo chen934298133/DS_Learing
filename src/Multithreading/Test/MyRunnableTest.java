@@ -1,6 +1,6 @@
 package Multithreading.Test;
 
-import Multithreading.Runnable.MyRunnable;
+import Multithreading.Runnable_2.MyRunnable;
 
 public class MyRunnableTest {
 
