@@ -1,4 +1,4 @@
-package IO.ObjectOutputStream;
+package IO.ObjectStream;
 
 import IO.Student;
 import java.io.*;

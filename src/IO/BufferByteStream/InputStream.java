@@ -7,7 +7,7 @@ import java.io.IOException;
 public class InputStream {
     public static void main(String[] args) throws IOException {
         // 1 创建BufferedInputStream
-        FileInputStream fis = new FileInputStream("H:\\Git\\Java_note\\IO\\3.字节流\\BufferedInputStream.md");
+        FileInputStream fis = new FileInputStream("H:\\Git\\Java_note\\IO\\Test\\BufferByteStream.md");
         BufferedInputStream bis = new BufferedInputStream(fis);
         // 2 读取
         int data = 0;
