@@ -27,8 +27,14 @@ public class stampToDateTest {
         String s = stampToDate(todayStartTime);
         System.out.println(s.substring(8));
 
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        Date date1 = new Date(System.currentTimeMillis());
+//        simpleDateFormat.parse(date1)
+//        System.out.println(new Date(System.currentTimeMillis()));
 
 
+        System.out.println( new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
     }
 
 }

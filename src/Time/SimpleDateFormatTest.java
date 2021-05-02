@@ -47,10 +47,10 @@ public class SimpleDateFormatTest {
         System.out.println(now.toLocaleString());
         System.out.println(now.toString());
 
-        Date parse = myFmt2.parse("2021-3-18 22:03:36");
-        System.out.println("parse: " + parse);
-        System.out.println("parse: " + parse.getTime());
-        String format = myFmt2.format(now);
+//        Date parse = myFmt2.parse("2021-3-18");
+//        System.out.println("parse: " + parse);
+
+        String format = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         System.out.println(format);
     }
 }
