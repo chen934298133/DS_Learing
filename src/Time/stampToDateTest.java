@@ -9,6 +9,7 @@ public class stampToDateTest {
     public static String stampToDate(long s) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date(s);
+
         return simpleDateFormat.format(date);
     }
 
