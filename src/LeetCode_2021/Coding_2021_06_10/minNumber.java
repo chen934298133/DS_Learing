@@ -78,7 +78,7 @@ public class minNumber {
 
         // 3. 拼接字符
         StringBuilder res = new StringBuilder();
-        for (String s : strs){
+        for (String s : strs) {
             res.append(s);
         }
         return res.toString();
@@ -99,14 +99,14 @@ public class minNumber {
         String temp = strs[low];
         while (low < high) {
             //从后向前找比基准小的数
-            while (low < high && (strs[high] + temp).compareTo(temp + strs[high]) >= 0){
+            while (low < high && (strs[high] + temp).compareTo(temp + strs[high]) >= 0) {
                 high--;
             }
             //把比基准小的数移到低端
             strs[low] = strs[high];
 
             //从前向后找比基准大的数
-            while (low < high && (strs[low] + temp).compareTo(temp + strs[low]) <= 0){
+            while (low < high && (strs[low] + temp).compareTo(temp + strs[low]) <= 0) {
                 low++;
             }
             //把比基准大的数移到高端
